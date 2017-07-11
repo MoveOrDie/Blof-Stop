@@ -13,9 +13,9 @@
 </head>
 <body>
     <div> 
-        <form action="/" method="post">
-            <input type="text" name="UserName" value="lior" />
-            <input type="password" name="UserPassword" value="1234" />
+        <form action="/Login" method="post">
+            <input type="text" name="UserName" value="@Model.UserName" />
+            <input type="password" name="UserPassword" value="@Model.UserPassword" />
             <input id="Submit" type="submit" value="submit" />
         </form>
     </div>
