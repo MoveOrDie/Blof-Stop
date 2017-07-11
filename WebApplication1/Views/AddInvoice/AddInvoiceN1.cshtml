@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> BloF StoP. </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style> /*Style addon for this page only*/
+        .thisContainer {
+            position: relative;
+            width: 50%;
+            height: 50%;
+            
+        }
+
+        .thisImage {
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .6s ease;
+            backface-visibility: hidden;
+        }
+
+        .thismiddle {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%)
+        }
+
+        .thisContainer:hover .thisImage {
+            opacity: 0.3;
+        }
+
+        .thisContainer:hover .thismiddle {
+            opacity: 1;
+        }
+
+        .thisText {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+        .thisBottun {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+    </style>
+</head>
+<body dir="rtl" class="subpage">
+    <!-- Header -->
+    <header id="header">
+        <div class="logo"><a href="index"> BloF StoP <span> - עוצרים את שיטת מצליח</span></a></div>
+        <a href="#menu">תפריט</a>
+    </header>
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <li><a href="index.html">בית</a></li>
+            <li><a href="index.html">איזור אישי</a></li>
+            <li><a href="index.html">הוספת חשבונית</a></li>
+            <li><a href="index.html">משהו</a></li>
+            <li><a href="index.html">עוד משהו</a></li>
+        </ul>
+    </nav>
+    <img src="" />
+    <!-- Main -->
+    <div id="main">
+        <section class="wrapper"> 
+            <div class="inner">  
+                <header class="align-center">
+                    <h1>הוספת חשבונית חדשה</h1>
+                    <p> בחר סוג חשבונית </p>
+                </header>
+                <div class="flex flex-3">
+                    <div class="col align-center">
+                        <h3>כבלים</h3>
+                        <div class="thisContainer" style="width: 400px; padding: 10px; margin: 0; ">
+                            <img src="~/Images/Cables_Background.jpg" class="thisImage">
+                            <div class="thismiddle">
+                                <a href="#" class="button fit small" style="font-size:110%">כבלים</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col align-center">
+                        <h3>אינטרנט</h3>
+                        <div class="thisContainer" style="width: 400px; padding: 10px; margin: 0; ">
+                            <img src="~/Images/Internet_background.png" class="thisImage">
+                            <div class="thismiddle">
+                                <a href="#" class="button fit small" style="font-size:110%">אינטרנט</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col align-center">
+                        <h3>סלולר</h3>
+                        <div class="thisContainer" style="width:400px; padding:10px; margin:3px; border-radius: 25px;">
+                            <img src="~/Images/cellular_backround.jpg" class="thisImage">
+                            <div class="thismiddle">
+                                <a href="#" class="button fit small" style="font-size:110%">סלולר</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <img src="" />
+    </div>
+    <footer id="footer">
+        <div class="copyright">
+            <ul class="icons">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon fa-snapchat"><span class="label">Snapchat</span></a></li>
+            </ul>
+            <p>&copy; כל הזכויות שמורות לליאור ואדיר בע"מ</p>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

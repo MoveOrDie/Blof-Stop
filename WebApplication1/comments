@@ -1,0 +1,8 @@
+כשיש פוקוס לאחד מהקלאסים שהרקע יהבהב קלות ואז ישתנה לצבע אחר שתהיה ניגודיות למשתמש ובצורה ברורה יבין איפה הוא נמצא בסין אפ
+
+- בסי אס אס מה זה כל הדברים האלה הלא ברורים
+input[type="text"]:invalid,
+		input[type="password"]:invalid,
+		input[type="email"]:invalid,
+		select:invalid,
+		textarea:invalid {
