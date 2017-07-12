@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
         {
            return View();
         }
-        public ActionResult submit(User user)
+        public ActionResult Submit(User user)
         {
             user.UserBirthDate = new DateTime(int.Parse(Request.Form["DOBYear"]), int.Parse(Request.Form["DOBMonth"]), int.Parse(Request.Form["DOBDay"]));
             user.UserGender = Request.Form["gender"];

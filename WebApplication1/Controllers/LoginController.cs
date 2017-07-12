@@ -13,9 +13,32 @@ namespace WebApplication1.Controllers
         // GET: Login
         public ActionResult Login()
         {
-            return View();
+            User test = new Models.User
+            {
+                UserName = "test",
+                UserPassword = "55555"
+            };
+            return View(test);
         }
-        public ActionResult CheckUser(User user)
+
+        public ActionResult Auth(User user_credentials)
+        {
+            User actual_user = CheckUser(user_credentials);
+
+            // The user does not exist or bad information given.
+            if (actual_user.Equals(user_credentials))
+            {
+                ViewBag.errorMessage = "הכניסה נכשלה, אנא בדוק את שם המשתמש והססמא ונסה שנית";
+                return View("Login", actual_user);
+            }
+
+            ViewBag.errorMessage = "התחברת בהצלחה";
+            return RedirectToRoute("HomeAfterLogin", actual_user);
+        }
+
+        // Finds a user with the given credentials.
+        // Returns the full user data from the db on success, or the given user credentials on failure.
+        private User CheckUser(User user)
         {
             DataLayer dal = new DataLayer();
 
@@ -27,22 +50,12 @@ namespace WebApplication1.Controllers
                                      where (u.UserName == user.UserName) && (u.UserPassword == user.UserPassword) select u).ToList<User>();
                 if (userOk.Count == 1)
                 {
-                    ViewBag.errorMessage = "התחברת בהצלחה";
-                    return RedirectToRoute("HomeAfterLogin");
+                    return userOk[0];
                     // user is logged in
                     //todo: right wing menu should now be avalible and reffer the user to HomeScreen
                 }
-
             }
-            else
-            {
-                ViewBag.errorMessage = "הכניסה נכשלה, אנא בדוק את שם המשתמש והססמא ונסה שנית";
-                return View("Login", user);
-                    
-            }
-            ViewBag.errorMessage = "הכניסה נכשלה, אנא בדוק את שם המשתמש והססמא ונסה שנית";
-            return View("Login", user);
-
+            return user;
         }
     }
 }

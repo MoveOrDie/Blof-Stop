@@ -227,7 +227,7 @@
     <Content Include="Views\Shared\SignUpSuccess.cshtml" />
     <Content Include="Views\AddInvoice\AddInvoiceN1.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\HomeAfterLogin\View.cshtml" />
+    <Content Include="Views\HomeAfterLogin\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
