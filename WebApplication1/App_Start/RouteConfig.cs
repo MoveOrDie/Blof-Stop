@@ -57,6 +57,26 @@ namespace WebApplication1
                 url: "AddInvoice/AddInvoiceN1",
                 defaults: new { controller = "AddInvoice", action = "AddInvoiceN1", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "LoginScreen",
+                url: "Login/Login",
+                defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "LoginScreenN2",
+                url: "Login",
+                defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "HomeAfterLogin",
+                url: "Home",
+                defaults: new { controller = "HomeAfterLogin", action = "Home", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "HomeAfterLogin2",
+                url: "HomeAfterLogin/Home",
+                defaults: new { controller = "HomeAfterLogin", action = "Home", id = UrlParameter.Optional }
+            );
         }
     }
 }

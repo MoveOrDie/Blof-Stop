@@ -29,7 +29,7 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
                 Console.WriteLine(user.ToString());
-                UserDal dal = new UserDal();
+                DataLayer dal = new DataLayer();
                 dal.Users.Add(user);
                 dal.SaveChanges();
                 return View("SignUpSuccess");

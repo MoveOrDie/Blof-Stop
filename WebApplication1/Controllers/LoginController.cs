@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebApplication1.Dal;
 using WebApplication1.Models;
+using WebApplication1.Dal;
 
 namespace WebApplication1.Controllers
 {
@@ -13,52 +13,36 @@ namespace WebApplication1.Controllers
         // GET: Login
         public ActionResult Login()
         {
-            return View(new User());
+            return View();
         }
-
-        public ActionResult Login(User u)
+        public ActionResult CheckUser(User user)
         {
-            return View("PostLogin", TryLogin(u));
-        }
+            DataLayer dal = new DataLayer();
 
-        public ActionResult PostLogin(User u)
-        {
-            if (u == null)
+            if (ModelState.IsValid)
             {
-                return View("Login", new User());
+                //todo: check if user == user and password=password on server side and on browser side
+                // goto homepage
+                List<User> userOk = (from u in dal.Users
+                                     where (u.UserName == user.UserName) && (u.UserPassword == user.UserPassword) select u).ToList<User>();
+                if (userOk.Count == 1)
+                {
+                    ViewBag.errorMessage = "התחברת בהצלחה";
+                    return RedirectToRoute("HomeAfterLogin");
+                    // user is logged in
+                    //todo: right wing menu should now be avalible and reffer the user to HomeScreen
+                }
+
             }
-
-            return View(u);
-        }
-
-        // Takes user with 'UserName' and 'UserPassword'.
-        // Returns the full user from the database if exists, or null otherwise.
-        public User TryLogin(User u)
-        {
-            UserDal ud = new UserDal();
-            List<User> users = (
-                // For each user in ud.Users (call it user_from_db),
-                // If it's username and password fields equals to those of u:
-                // select: user_from_db.
-                from user_from_db in ud.Users
-                where user_from_db.UserName == u.UserName && user_from_db.UserPassword == u.UserPassword
-                select user_from_db
-            ).ToList<User>();
-
-            //list<user> result;
-            //for (int i = 0; i < ud.users.length; i++)
-            //{
-            //    user user_from_db = ud.users[i];
-            //    if (user_from_db.username == u.username && u.userpassword == user_from_db.userpassword)
-            //    {
-            //        result.add(user_from_db);
-            //    }
-
-            if (users.Count() == 0)
+            else
             {
-                return null;
+                ViewBag.errorMessage = "הכניסה נכשלה, אנא בדוק את שם המשתמש והססמא ונסה שנית";
+                return View("Login", user);
+                    
             }
-            return users[0];
+            ViewBag.errorMessage = "הכניסה נכשלה, אנא בדוק את שם המשתמש והססמא ונסה שנית";
+            return View("Login", user);
+
         }
     }
 }

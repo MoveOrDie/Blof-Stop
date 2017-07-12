@@ -149,9 +149,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AddInvoiceController.cs" />
     <Compile Include="Controllers\FirstController.cs" />
+    <Compile Include="Controllers\HomeAfterLoginController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
-    <Compile Include="Dal\UserDal.cs" />
+    <Compile Include="Dal\DataLayer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -226,7 +227,7 @@
     <Content Include="Views\Shared\SignUpSuccess.cshtml" />
     <Content Include="Views\AddInvoice\AddInvoiceN1.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Login\PostLogin.cshtml" />
+    <Content Include="Views\HomeAfterLogin\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

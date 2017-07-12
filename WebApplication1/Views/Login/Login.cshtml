@@ -8,16 +8,37 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+        <title> BloF StoP. </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+
+        .warningsForLogin {
+            color:darkorange;
+            font-size:10px;
+        }
+    </style>
 </head>
-<body>
-    <div> 
-        <form action="/Login" method="post">
-            <input type="text" name="UserName" value="@Model.UserName" />
-            <input type="password" name="UserPassword" value="@Model.UserPassword" />
-            <input id="Submit" type="submit" value="submit" />
-        </form>
+<body dir="rtl">
+    <div class=" wrapper"> 
+        @using (Html.BeginForm("CheckUser", "Login", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>שם משתמש:</td><td>@Html.TextBoxFor(m => m.UserName)</td><td><div class="warningsForLogin">@Html.ValidationMessageFor(x => x.UserName)</div></td>
+                </tr>
+                <tr>
+                    <td>ססמא:</td><td>@Html.PasswordFor(m => m.UserPassword)</td><td><div class="warningsForLogin">@Html.ValidationMessageFor(x => x.UserPassword)</div></td>
+                </tr>
+                <tr>
+                    <td><input id="Submit" name="CheckUser" type="submit" value="שלח" /></td>                                   
+                </tr>
+                <tr>
+                    <td>@ViewBag.errorMessage</td>
+                </tr>
+            </table>  
+        }
     </div>
 </body>
 </html>
